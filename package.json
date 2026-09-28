@@ -3,7 +3,7 @@
   "displayName": "CodeGen",
   "description": "Universal right-click code generator for VS Code & Antigravity IDE. Scaffold Dart/Flutter, Laravel/PHP, React, Go, Vue, Python, and custom templates in seconds.",
   "version": "0.1.0",
-  "publisher": "yusril-rapsanjani",
+  "publisher": "YusrilRapsanjani",
   "author": "Yusril Rapsanjani",
   "license": "MIT",
   "icon": "images/icon.png",
@@ -330,83 +330,83 @@
       "codegen.menu.dart": [
         {
           "command": "codegen.dart.createDto",
-          "group": "1_dart@1"
+          "group": "1_models@1"
         },
         {
           "command": "codegen.dart.createEntity",
-          "group": "1_dart@2"
+          "group": "1_models@2"
         },
         {
           "command": "codegen.dart.createBloc",
-          "group": "1_dart@3"
+          "group": "2_state@1"
         },
         {
           "command": "codegen.dart.createRiverpod",
-          "group": "1_dart@4"
+          "group": "2_state@2"
         },
         {
           "command": "codegen.dart.createProvider",
-          "group": "1_dart@5"
-        },
-        {
-          "command": "codegen.dart.createRepository",
-          "group": "1_dart@6"
+          "group": "2_state@3"
         },
         {
           "command": "codegen.dart.createUseCase",
-          "group": "1_dart@7"
+          "group": "3_arch@1"
+        },
+        {
+          "command": "codegen.dart.createRepository",
+          "group": "3_arch@2"
         },
         {
           "command": "codegen.dart.createService",
-          "group": "1_dart@8"
+          "group": "3_arch@3"
         },
         {
           "command": "codegen.dart.createScreen",
-          "group": "1_dart@9"
+          "group": "4_ui@1"
         },
         {
           "command": "codegen.dart.createWidget",
-          "group": "1_dart@10"
+          "group": "4_ui@2"
         }
       ],
       "codegen.menu.laravel": [
         {
           "command": "codegen.laravel.createController",
-          "group": "1_laravel@1"
-        },
-        {
-          "command": "codegen.laravel.createModel",
-          "group": "1_laravel@2"
-        },
-        {
-          "command": "codegen.laravel.createService",
-          "group": "1_laravel@3"
-        },
-        {
-          "command": "codegen.laravel.createRepository",
-          "group": "1_laravel@4"
-        },
-        {
-          "command": "codegen.laravel.createRequest",
-          "group": "1_laravel@5"
+          "group": "1_http@1"
         },
         {
           "command": "codegen.laravel.createAction",
-          "group": "1_laravel@6"
+          "group": "1_http@2"
+        },
+        {
+          "command": "codegen.laravel.createRequest",
+          "group": "1_http@3"
+        },
+        {
+          "command": "codegen.laravel.createModel",
+          "group": "2_domain@1"
+        },
+        {
+          "command": "codegen.laravel.createService",
+          "group": "2_domain@2"
+        },
+        {
+          "command": "codegen.laravel.createRepository",
+          "group": "2_domain@3"
         }
       ],
       "codegen.menu.react": [
         {
           "command": "codegen.react.createComponent",
-          "group": "1_react@1"
+          "group": "1_ui@1"
         },
         {
           "command": "codegen.react.createHook",
-          "group": "1_react@2"
+          "group": "2_state@1"
         },
         {
           "command": "codegen.react.createContext",
-          "group": "1_react@3"
+          "group": "2_state@2"
         }
       ],
       "codegen.menu.golang": [
