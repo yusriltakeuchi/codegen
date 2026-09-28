@@ -1,0 +1,16 @@
+{
+  "name": "Create Vue 3 Component",
+  "description": "Create Vue 3 SFC with script setup, TypeScript, and scoped CSS",
+  "language": "vue",
+  "category": "vue",
+  "filename": "${NAME_PASCAL_CASE}.vue",
+  "variables": [
+    {
+      "name": "NAME",
+      "prompt": "Vue component name (e.g. UserCard, Navbar, Modal)",
+      "placeholder": "UserCard",
+      "required": true,
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+    }
+  ]
+}

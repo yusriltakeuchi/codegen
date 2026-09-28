@@ -1,0 +1,22 @@
+{
+  "name": "Create React Component",
+  "description": "Create React TypeScript component with CSS Module",
+  "language": "typescript",
+  "category": "react",
+  "filename": "${NAME_PASCAL_CASE}.tsx",
+  "variables": [
+    {
+      "name": "NAME",
+      "prompt": "Component name (e.g. Button, UserCard, Header)",
+      "placeholder": "UserCard",
+      "required": true,
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+    }
+  ],
+  "children": [
+    {
+      "filename": "${NAME_PASCAL_CASE}.module.css",
+      "template": "styles.module.css"
+    }
+  ]
+}

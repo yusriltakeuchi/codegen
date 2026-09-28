@@ -1,0 +1,16 @@
+{
+  "name": "Create Flutter Widget",
+  "description": "Create a reusable Flutter StatelessWidget component",
+  "language": "dart",
+  "category": "dart",
+  "filename": "${NAME_SNAKE_CASE}_widget.dart",
+  "variables": [
+    {
+      "name": "NAME",
+      "prompt": "Widget name (e.g. user_avatar, custom_card)",
+      "placeholder": "custom_card",
+      "required": true,
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+    }
+  ]
+}

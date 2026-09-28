@@ -1,0 +1,16 @@
+{
+  "name": "Create Pydantic Schema",
+  "description": "Create Pydantic v2 Base, Create, Update, and Response schemas",
+  "language": "python",
+  "category": "python",
+  "filename": "${NAME_SNAKE_CASE}_schema.py",
+  "variables": [
+    {
+      "name": "NAME",
+      "prompt": "Model schema name (e.g. user, product, order)",
+      "placeholder": "user",
+      "required": true,
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+    }
+  ]
+}

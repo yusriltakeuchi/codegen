@@ -1,0 +1,16 @@
+{
+  "name": "Create React Hook",
+  "description": "Create custom React hook with TypeScript types",
+  "language": "typescript",
+  "category": "react",
+  "filename": "use${NAME_PASCAL_CASE}.ts",
+  "variables": [
+    {
+      "name": "NAME",
+      "prompt": "Hook name (e.g. Auth, Debounce, FetchUser)",
+      "placeholder": "Auth",
+      "required": true,
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+    }
+  ]
+}

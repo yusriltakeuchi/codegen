@@ -1,0 +1,22 @@
+{
+  "name": "Create Repository",
+  "description": "Create Laravel Repository interface and Eloquent implementation",
+  "language": "php",
+  "category": "laravel",
+  "filename": "${NAME_PASCAL_CASE}RepositoryInterface.php",
+  "variables": [
+    {
+      "name": "NAME",
+      "prompt": "Repository name (e.g. User, Post, Product)",
+      "placeholder": "Post",
+      "required": true,
+      "pattern": "^[A-Za-z][A-Za-z0-9_]*$"
+    }
+  ],
+  "children": [
+    {
+      "filename": "${NAME_PASCAL_CASE}Repository.php",
+      "template": "repository.php"
+    }
+  ]
+}

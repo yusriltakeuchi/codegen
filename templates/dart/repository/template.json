@@ -1,0 +1,22 @@
+{
+  "name": "Create Repository",
+  "description": "Create Clean Architecture Repository interface and implementation",
+  "language": "dart",
+  "category": "dart",
+  "filename": "${NAME_SNAKE_CASE}_repository.dart",
+  "variables": [
+    {
+      "name": "NAME",
+      "prompt": "Repository name (e.g. auth, user, product)",
+      "placeholder": "auth",
+      "required": true,
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+    }
+  ],
+  "children": [
+    {
+      "filename": "${NAME_SNAKE_CASE}_repository_impl.dart",
+      "template": "implementation.dart"
+    }
+  ]
+}

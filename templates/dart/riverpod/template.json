@@ -1,0 +1,16 @@
+{
+  "name": "Create Riverpod Notifier",
+  "description": "Create Riverpod AsyncNotifier provider with state and methods",
+  "language": "dart",
+  "category": "dart",
+  "filename": "${NAME_SNAKE_CASE}_provider.dart",
+  "variables": [
+    {
+      "name": "NAME",
+      "prompt": "Riverpod provider name (e.g. user_profile, product_list)",
+      "placeholder": "user_profile",
+      "required": true,
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+    }
+  ]
+}

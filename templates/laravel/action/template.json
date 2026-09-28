@@ -1,0 +1,16 @@
+{
+  "name": "Create Action",
+  "description": "Create Laravel Single-Action Invokable Class",
+  "language": "php",
+  "category": "laravel",
+  "filename": "${NAME_PASCAL_CASE}Action.php",
+  "variables": [
+    {
+      "name": "NAME",
+      "prompt": "Action name (e.g. CreateUser, ProcessPayment)",
+      "placeholder": "CreatePost",
+      "required": true,
+      "pattern": "^[A-Za-z][A-Za-z0-9_]*$"
+    }
+  ]
+}

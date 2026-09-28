@@ -1,0 +1,16 @@
+{
+  "name": "Create Service",
+  "description": "Create Laravel Business Logic Service class",
+  "language": "php",
+  "category": "laravel",
+  "filename": "${NAME_PASCAL_CASE}Service.php",
+  "variables": [
+    {
+      "name": "NAME",
+      "prompt": "Service name (e.g. Order, Payment, User)",
+      "placeholder": "Order",
+      "required": true,
+      "pattern": "^[A-Za-z][A-Za-z0-9_]*$"
+    }
+  ]
+}

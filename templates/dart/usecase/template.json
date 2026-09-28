@@ -1,0 +1,16 @@
+{
+  "name": "Create Use Case",
+  "description": "Create Clean Architecture single-responsibility Use Case",
+  "language": "dart",
+  "category": "dart",
+  "filename": "${NAME_SNAKE_CASE}_usecase.dart",
+  "variables": [
+    {
+      "name": "NAME",
+      "prompt": "Use case name (e.g. get_user, update_profile)",
+      "placeholder": "get_user",
+      "required": true,
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+    }
+  ]
+}

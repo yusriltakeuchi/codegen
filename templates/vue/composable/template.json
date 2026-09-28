@@ -1,0 +1,16 @@
+{
+  "name": "Create Vue 3 Composable",
+  "description": "Create Vue 3 composable with reactive refs and lifecycle helpers",
+  "language": "typescript",
+  "category": "vue",
+  "filename": "use${NAME_PASCAL_CASE}.ts",
+  "variables": [
+    {
+      "name": "NAME",
+      "prompt": "Composable feature name (e.g. Counter, UserList, DarkMode)",
+      "placeholder": "Counter",
+      "required": true,
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+    }
+  ]
+}

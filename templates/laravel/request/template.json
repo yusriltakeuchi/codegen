@@ -1,0 +1,16 @@
+{
+  "name": "Create Form Request",
+  "description": "Create Laravel Form Request for validation and authorization",
+  "language": "php",
+  "category": "laravel",
+  "filename": "${NAME_PASCAL_CASE}Request.php",
+  "variables": [
+    {
+      "name": "NAME",
+      "prompt": "Form Request name (e.g. StoreUser, UpdatePost)",
+      "placeholder": "StorePost",
+      "required": true,
+      "pattern": "^[A-Za-z][A-Za-z0-9_]*$"
+    }
+  ]
+}

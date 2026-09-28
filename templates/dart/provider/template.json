@@ -1,0 +1,16 @@
+{
+  "name": "Create Provider (ChangeNotifier)",
+  "description": "Create Flutter ChangeNotifier Provider with state & notifyListeners()",
+  "language": "dart",
+  "category": "dart",
+  "filename": "${NAME_SNAKE_CASE}_provider.dart",
+  "variables": [
+    {
+      "name": "NAME",
+      "prompt": "Provider name (e.g. auth, theme, cart)",
+      "placeholder": "auth",
+      "required": true,
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+    }
+  ]
+}

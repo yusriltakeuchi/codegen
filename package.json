@@ -1,0 +1,574 @@
+{
+  "name": "codegen",
+  "displayName": "CodeGen",
+  "description": "Universal right-click code generator for VS Code & Antigravity IDE. Scaffold Dart/Flutter, Laravel/PHP, React, Go, Vue, Python, and custom templates in seconds.",
+  "version": "0.1.0",
+  "publisher": "yusril-rapsanjani",
+  "author": "Yusril Rapsanjani",
+  "license": "MIT",
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#0d1117",
+    "theme": "dark"
+  },
+  "keywords": [
+    "codegen",
+    "code generator",
+    "scaffold",
+    "template",
+    "generator",
+    "dart",
+    "flutter",
+    "laravel",
+    "php",
+    "react",
+    "golang",
+    "vue",
+    "python",
+    "fastapi",
+    "snippets"
+  ],
+  "categories": [
+    "Snippets",
+    "Programming Languages",
+    "Other"
+  ],
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "activationEvents": [
+    "onCommand:codegen.newFileFromTemplate",
+    "onCommand:codegen.dart.createDto",
+    "onCommand:codegen.dart.createEntity",
+    "onCommand:codegen.dart.createBloc",
+    "onCommand:codegen.dart.createRiverpod",
+    "onCommand:codegen.dart.createProvider",
+    "onCommand:codegen.dart.createRepository",
+    "onCommand:codegen.dart.createUseCase",
+    "onCommand:codegen.dart.createService",
+    "onCommand:codegen.dart.createScreen",
+    "onCommand:codegen.dart.createWidget",
+    "onCommand:codegen.laravel.createController",
+    "onCommand:codegen.laravel.createModel",
+    "onCommand:codegen.laravel.createService",
+    "onCommand:codegen.laravel.createRepository",
+    "onCommand:codegen.laravel.createRequest",
+    "onCommand:codegen.laravel.createAction",
+    "onCommand:codegen.react.createComponent",
+    "onCommand:codegen.react.createHook",
+    "onCommand:codegen.react.createContext",
+    "onCommand:codegen.golang.createHandler",
+    "onCommand:codegen.golang.createService",
+    "onCommand:codegen.golang.createRepository",
+    "onCommand:codegen.vue.createComponent",
+    "onCommand:codegen.vue.createComposable",
+    "onCommand:codegen.python.createRouter",
+    "onCommand:codegen.python.createSchema",
+    "onCommand:codegen.refreshTemplates",
+    "onCommand:codegen.openTemplatesFolder",
+    "onCommand:globalCodeGenerator.createDto",
+    "onCommand:globalCodeGenerator.createEntity",
+    "onCommand:globalCodeGenerator.createBloc",
+    "onCommand:globalCodeGenerator.refreshTemplates"
+  ],
+  "main": "./out/extension.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yusril/codegen"
+  },
+  "bugs": {
+    "url": "https://github.com/yusril/codegen/issues"
+  },
+  "homepage": "https://github.com/yusril/codegen#readme",
+  "contributes": {
+    "commands": [
+      {
+        "command": "codegen.newFileFromTemplate",
+        "title": "New from Template...",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.dart.createDto",
+        "title": "Dart: Create DTO (Freezed)",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.dart.createEntity",
+        "title": "Dart: Create Entity",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.dart.createBloc",
+        "title": "Dart: Create Cubit Bloc Freezed",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.dart.createRiverpod",
+        "title": "Dart: Create Riverpod Notifier",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.dart.createProvider",
+        "title": "Dart: Create Provider (ChangeNotifier)",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.dart.createRepository",
+        "title": "Dart: Create Repository",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.dart.createUseCase",
+        "title": "Dart: Create Use Case",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.dart.createService",
+        "title": "Dart: Create Service",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.dart.createScreen",
+        "title": "Dart: Create Flutter Screen",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.dart.createWidget",
+        "title": "Dart: Create Flutter Widget",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.laravel.createController",
+        "title": "Laravel: Create Controller",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.laravel.createModel",
+        "title": "Laravel: Create Model",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.laravel.createService",
+        "title": "Laravel: Create Service",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.laravel.createRepository",
+        "title": "Laravel: Create Repository",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.laravel.createRequest",
+        "title": "Laravel: Create Form Request",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.laravel.createAction",
+        "title": "Laravel: Create Action",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.react.createComponent",
+        "title": "React: Create Component",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.react.createHook",
+        "title": "React: Create Hook",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.react.createContext",
+        "title": "React: Create Context",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.golang.createHandler",
+        "title": "Go: Create HTTP Handler",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.golang.createService",
+        "title": "Go: Create Service",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.golang.createRepository",
+        "title": "Go: Create Repository",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.vue.createComponent",
+        "title": "Vue: Create Component (SFC)",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.vue.createComposable",
+        "title": "Vue: Create Composable",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.python.createRouter",
+        "title": "Python: Create FastAPI Router",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.python.createSchema",
+        "title": "Python: Create Pydantic Schema",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.openTemplatesFolder",
+        "title": "Open Global Templates Folder",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.refreshTemplates",
+        "title": "Refresh Global Templates",
+        "category": "CodeGen"
+      },
+      {
+        "command": "globalCodeGenerator.createDto",
+        "title": "Create DTO",
+        "category": "CodeGen (Legacy)"
+      },
+      {
+        "command": "globalCodeGenerator.createEntity",
+        "title": "Create Entity",
+        "category": "CodeGen (Legacy)"
+      },
+      {
+        "command": "globalCodeGenerator.createBloc",
+        "title": "Create Cubit Bloc Freezed",
+        "category": "CodeGen (Legacy)"
+      },
+      {
+        "command": "globalCodeGenerator.refreshTemplates",
+        "title": "Refresh Global Templates",
+        "category": "CodeGen (Legacy)"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "submenu": "codegen.menu",
+          "when": "explorerResourceIsFolder",
+          "group": "7_modification@3"
+        }
+      ],
+      "codegen.menu": [
+        {
+          "command": "codegen.newFileFromTemplate",
+          "group": "0_quick@1"
+        },
+        {
+          "submenu": "codegen.menu.dart",
+          "group": "1_languages@1"
+        },
+        {
+          "submenu": "codegen.menu.laravel",
+          "group": "1_languages@2"
+        },
+        {
+          "submenu": "codegen.menu.react",
+          "group": "1_languages@3"
+        },
+        {
+          "submenu": "codegen.menu.golang",
+          "group": "1_languages@4"
+        },
+        {
+          "submenu": "codegen.menu.vue",
+          "group": "1_languages@5"
+        },
+        {
+          "submenu": "codegen.menu.python",
+          "group": "1_languages@6"
+        },
+        {
+          "command": "codegen.openTemplatesFolder",
+          "group": "2_management@1"
+        },
+        {
+          "command": "codegen.refreshTemplates",
+          "group": "2_management@2"
+        }
+      ],
+      "codegen.menu.dart": [
+        {
+          "command": "codegen.dart.createDto",
+          "group": "1_dart@1"
+        },
+        {
+          "command": "codegen.dart.createEntity",
+          "group": "1_dart@2"
+        },
+        {
+          "command": "codegen.dart.createBloc",
+          "group": "1_dart@3"
+        },
+        {
+          "command": "codegen.dart.createRiverpod",
+          "group": "1_dart@4"
+        },
+        {
+          "command": "codegen.dart.createProvider",
+          "group": "1_dart@5"
+        },
+        {
+          "command": "codegen.dart.createRepository",
+          "group": "1_dart@6"
+        },
+        {
+          "command": "codegen.dart.createUseCase",
+          "group": "1_dart@7"
+        },
+        {
+          "command": "codegen.dart.createService",
+          "group": "1_dart@8"
+        },
+        {
+          "command": "codegen.dart.createScreen",
+          "group": "1_dart@9"
+        },
+        {
+          "command": "codegen.dart.createWidget",
+          "group": "1_dart@10"
+        }
+      ],
+      "codegen.menu.laravel": [
+        {
+          "command": "codegen.laravel.createController",
+          "group": "1_laravel@1"
+        },
+        {
+          "command": "codegen.laravel.createModel",
+          "group": "1_laravel@2"
+        },
+        {
+          "command": "codegen.laravel.createService",
+          "group": "1_laravel@3"
+        },
+        {
+          "command": "codegen.laravel.createRepository",
+          "group": "1_laravel@4"
+        },
+        {
+          "command": "codegen.laravel.createRequest",
+          "group": "1_laravel@5"
+        },
+        {
+          "command": "codegen.laravel.createAction",
+          "group": "1_laravel@6"
+        }
+      ],
+      "codegen.menu.react": [
+        {
+          "command": "codegen.react.createComponent",
+          "group": "1_react@1"
+        },
+        {
+          "command": "codegen.react.createHook",
+          "group": "1_react@2"
+        },
+        {
+          "command": "codegen.react.createContext",
+          "group": "1_react@3"
+        }
+      ],
+      "codegen.menu.golang": [
+        {
+          "command": "codegen.golang.createHandler",
+          "group": "1_golang@1"
+        },
+        {
+          "command": "codegen.golang.createService",
+          "group": "1_golang@2"
+        },
+        {
+          "command": "codegen.golang.createRepository",
+          "group": "1_golang@3"
+        }
+      ],
+      "codegen.menu.vue": [
+        {
+          "command": "codegen.vue.createComponent",
+          "group": "1_vue@1"
+        },
+        {
+          "command": "codegen.vue.createComposable",
+          "group": "1_vue@2"
+        }
+      ],
+      "codegen.menu.python": [
+        {
+          "command": "codegen.python.createRouter",
+          "group": "1_python@1"
+        },
+        {
+          "command": "codegen.python.createSchema",
+          "group": "1_python@2"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "codegen.newFileFromTemplate"
+        },
+        {
+          "command": "codegen.dart.createDto"
+        },
+        {
+          "command": "codegen.dart.createEntity"
+        },
+        {
+          "command": "codegen.dart.createBloc"
+        },
+        {
+          "command": "codegen.dart.createRiverpod"
+        },
+        {
+          "command": "codegen.dart.createProvider"
+        },
+        {
+          "command": "codegen.dart.createRepository"
+        },
+        {
+          "command": "codegen.dart.createUseCase"
+        },
+        {
+          "command": "codegen.dart.createService"
+        },
+        {
+          "command": "codegen.dart.createScreen"
+        },
+        {
+          "command": "codegen.dart.createWidget"
+        },
+        {
+          "command": "codegen.laravel.createController"
+        },
+        {
+          "command": "codegen.laravel.createModel"
+        },
+        {
+          "command": "codegen.laravel.createService"
+        },
+        {
+          "command": "codegen.laravel.createRepository"
+        },
+        {
+          "command": "codegen.laravel.createRequest"
+        },
+        {
+          "command": "codegen.laravel.createAction"
+        },
+        {
+          "command": "codegen.react.createComponent"
+        },
+        {
+          "command": "codegen.react.createHook"
+        },
+        {
+          "command": "codegen.react.createContext"
+        },
+        {
+          "command": "codegen.golang.createHandler"
+        },
+        {
+          "command": "codegen.golang.createService"
+        },
+        {
+          "command": "codegen.golang.createRepository"
+        },
+        {
+          "command": "codegen.vue.createComponent"
+        },
+        {
+          "command": "codegen.vue.createComposable"
+        },
+        {
+          "command": "codegen.python.createRouter"
+        },
+        {
+          "command": "codegen.python.createSchema"
+        },
+        {
+          "command": "codegen.openTemplatesFolder"
+        },
+        {
+          "command": "codegen.refreshTemplates"
+        }
+      ]
+    },
+    "submenus": [
+      {
+        "id": "codegen.menu",
+        "label": "CodeGen"
+      },
+      {
+        "id": "codegen.menu.dart",
+        "label": "Dart / Flutter"
+      },
+      {
+        "id": "codegen.menu.laravel",
+        "label": "Laravel"
+      },
+      {
+        "id": "codegen.menu.react",
+        "label": "React"
+      },
+      {
+        "id": "codegen.menu.golang",
+        "label": "Go (Golang)"
+      },
+      {
+        "id": "codegen.menu.vue",
+        "label": "Vue"
+      },
+      {
+        "id": "codegen.menu.python",
+        "label": "Python (FastAPI)"
+      }
+    ],
+    "configuration": {
+      "title": "CodeGen",
+      "properties": {
+        "codegen.templatesDirectory": {
+          "type": "string",
+          "default": "",
+          "description": "Custom global templates directory. If empty, ~/.codegen/templates is used."
+        },
+        "codegen.overwriteExistingFiles": {
+          "type": "boolean",
+          "default": false,
+          "description": "Allow templates to overwrite existing generated files."
+        },
+        "globalCodeGenerator.templatesDirectory": {
+          "type": "string",
+          "default": "",
+          "description": "Legacy templates directory configuration alias."
+        },
+        "globalCodeGenerator.overwriteExistingFiles": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy overwrite configuration alias."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "npm run compile && npx @vscode/vsce package",
+    "packages": "npm run package",
+    "publish": "npm run compile && npx @vscode/vsce publish",
+    "install-local": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/vscode": "^1.90.0",
+    "@vscode/vsce": "^3.0.0",
+    "typescript": "^5.6.0"
+  }
+}

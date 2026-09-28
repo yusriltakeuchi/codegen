@@ -1,0 +1,16 @@
+{
+  "name": "Create FastAPI Router",
+  "description": "Create FastAPI APIRouter with REST endpoints and CRUD operations",
+  "language": "python",
+  "category": "python",
+  "filename": "${NAME_SNAKE_CASE}_router.py",
+  "variables": [
+    {
+      "name": "NAME",
+      "prompt": "Resource name (e.g. user, item, order)",
+      "placeholder": "item",
+      "required": true,
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+    }
+  ]
+}

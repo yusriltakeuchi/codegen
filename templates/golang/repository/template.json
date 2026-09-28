@@ -1,0 +1,16 @@
+{
+  "name": "Create Go Repository",
+  "description": "Create Go database repository interface and implementation struct",
+  "language": "go",
+  "category": "golang",
+  "filename": "${NAME_SNAKE_CASE}_repository.go",
+  "variables": [
+    {
+      "name": "NAME",
+      "prompt": "Repository entity name (e.g. user, product, order)",
+      "placeholder": "user",
+      "required": true,
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+    }
+  ]
+}

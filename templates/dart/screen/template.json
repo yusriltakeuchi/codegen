@@ -1,0 +1,16 @@
+{
+  "name": "Create Flutter Screen",
+  "description": "Create Flutter UI Screen / Page with Scaffold & AppBar",
+  "language": "dart",
+  "category": "dart",
+  "filename": "${NAME_SNAKE_CASE}_screen.dart",
+  "variables": [
+    {
+      "name": "NAME",
+      "prompt": "Screen name (e.g. profile, home, settings)",
+      "placeholder": "profile",
+      "required": true,
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+    }
+  ]
+}

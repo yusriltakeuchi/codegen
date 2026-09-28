@@ -1,0 +1,22 @@
+{
+  "name": "Create Cubit Bloc Freezed",
+  "description": "Create a Freezed Cubit Bloc and its State",
+  "language": "dart",
+  "filename": "${NAME}_bloc.dart",
+  "variables": [
+    {
+      "name": "NAME",
+      "prompt": "Bloc name",
+      "placeholder": "get_user",
+      "required": true,
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+    }
+  ],
+  "children": [
+    {
+      "filename": "${NAME}_state.dart",
+      "template": "state.dart",
+      "content": "// Created on ${DAY}-${MONTH}-${YEAR} ${HOUR}:${MINUTE} by ${USER}\n\npart of '${NAME}_bloc.dart';\n\n@freezed\nclass ${NAME_CAPITALIZED}State with _$${NAME_CAPITALIZED}State {\n  const factory ${NAME_CAPITALIZED}State.initial() = _${NAME_CAPITALIZED}InitialState;\n  const factory ${NAME_CAPITALIZED}State.loading() = _${NAME_CAPITALIZED}LoadingState;\n  const factory ${NAME_CAPITALIZED}State.error(String message) = _${NAME_CAPITALIZED}ErrorState;\n  const factory ${NAME_CAPITALIZED}State.loaded({\n    required List<ItemType> items,\n    required int page,\n    required bool hasReachedMax,\n    required bool onLoadMore,\n  }) = _${NAME_CAPITALIZED}LoadedState;\n}\n"
+    }
+  ]
+}

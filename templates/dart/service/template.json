@@ -1,0 +1,16 @@
+{
+  "name": "Create Service",
+  "description": "Create API / Remote HTTP Data Service",
+  "language": "dart",
+  "category": "dart",
+  "filename": "${NAME_SNAKE_CASE}_service.dart",
+  "variables": [
+    {
+      "name": "NAME",
+      "prompt": "Service name (e.g. auth, user, transaction)",
+      "placeholder": "auth",
+      "required": true,
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+    }
+  ]
+}

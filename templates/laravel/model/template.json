@@ -1,0 +1,16 @@
+{
+  "name": "Create Model",
+  "description": "Create Laravel Eloquent Model with HasFactory & SoftDeletes",
+  "language": "php",
+  "category": "laravel",
+  "filename": "${NAME_PASCAL_CASE}.php",
+  "variables": [
+    {
+      "name": "NAME",
+      "prompt": "Model name (e.g. Post, Product, Invoice)",
+      "placeholder": "Post",
+      "required": true,
+      "pattern": "^[A-Za-z][A-Za-z0-9_]*$"
+    }
+  ]
+}

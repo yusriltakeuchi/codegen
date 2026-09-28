@@ -1,0 +1,16 @@
+{
+  "name": "Create React Context",
+  "description": "Create React Context, Provider, and custom hook with error boundary guard",
+  "language": "typescript",
+  "category": "react",
+  "filename": "${NAME_PASCAL_CASE}Context.tsx",
+  "variables": [
+    {
+      "name": "NAME",
+      "prompt": "Context name (e.g. Theme, Auth, Cart)",
+      "placeholder": "Auth",
+      "required": true,
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+    }
+  ]
+}
