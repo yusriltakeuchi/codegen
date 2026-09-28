@@ -3,6 +3,7 @@ import * as fs from "node:fs/promises";
 import * as path from "node:path";
 import * as os from "node:os";
 import * as crypto from "node:crypto";
+import * as cp from "node:child_process";
 import { TemplateLoader, TemplateDefinition } from "./template-loader";
 import { renderTemplate } from "./template-engine";
 
@@ -256,7 +257,7 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
     async () => {
       const templatesDir = loader.getTemplatesDirectory();
       await fs.mkdir(templatesDir, { recursive: true });
-      await vscode.commands.executeCommand("revealFileInOS", vscode.Uri.file(templatesDir));
+      await openFolderInOS(templatesDir);
     }
   );
 
@@ -359,10 +360,7 @@ async function createFromTemplate(
 
     if (action === "Open Templates Folder") {
       await fs.mkdir(templatesDir, { recursive: true });
-      await vscode.commands.executeCommand(
-        "revealFileInOS",
-        vscode.Uri.file(templatesDir)
-      );
+      await openFolderInOS(templatesDir);
     }
     return;
   }
@@ -609,5 +607,59 @@ async function fileExists(filePath: string): Promise<boolean> {
     return true;
   } catch {
     return false;
+  }
+}
+
+async function openFolderInOS(folderPath: string): Promise<void> {
+  // Ensure target directory exists before opening
+  try {
+    await fs.mkdir(folderPath, { recursive: true });
+  } catch {
+    // Ignore error if directory already exists or cannot be created
+  }
+
+  // 1. Primary approach: vscode.env.openExternal
+  // Works across Windows, macOS, Linux, and Remote environments (WSL, SSH, Containers)
+  const uri = vscode.Uri.file(folderPath);
+  try {
+    const success = await vscode.env.openExternal(uri);
+    if (success) {
+      return;
+    }
+  } catch {
+    // Fall through to system command fallback
+  }
+
+  // 2. Fallback: OS-specific native launcher
+  const platform = process.platform;
+  try {
+    if (platform === "darwin") {
+      const child = cp.spawn("open", [folderPath], { detached: true, stdio: "ignore" });
+      child.on("error", () => {});
+      child.unref();
+    } else if (platform === "win32") {
+      const explorer = process.env.SystemRoot
+        ? path.join(process.env.SystemRoot, "explorer.exe")
+        : "explorer.exe";
+      const child = cp.spawn(explorer, [folderPath], { detached: true, stdio: "ignore" });
+      child.on("error", () => {});
+      child.unref();
+    } else {
+      // Linux / BSD / WSL
+      const isWsl = Boolean(process.env.WSL_DISTRO_NAME);
+      const cmd = isWsl ? "wslview" : "xdg-open";
+      const child = cp.spawn(cmd, [folderPath], { detached: true, stdio: "ignore" });
+      child.on("error", () => {
+        if (isWsl) {
+          // If wslview is not installed in WSL, fallback to xdg-open
+          const fallbackChild = cp.spawn("xdg-open", [folderPath], { detached: true, stdio: "ignore" });
+          fallbackChild.on("error", () => {});
+          fallbackChild.unref();
+        }
+      });
+      child.unref();
+    }
+  } catch {
+    // Silently prevent any spawn failure from breaking the extension
   }
 }

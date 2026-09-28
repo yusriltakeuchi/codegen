@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.1] - 2026-09-28
+
+### Fixed
+- **Open Global Templates Folder**: Fixed an issue where clicking "Open Global Templates Folder" from the Explorer context menu opened the right-clicked directory instead of `~/.codegen/templates/` due to VS Code's internal `revealFileInOS` selection override.
+- **Cross-Platform OS Launcher**: Replaced `revealFileInOS` with `vscode.env.openExternal` and robust native OS fallbacks supporting macOS (`open`), Windows (`explorer.exe`), WSL (`wslview`/`xdg-open`), and Linux (`xdg-open`).
+- **Safe Process Spawning**: Attached error handlers to detached child processes to prevent crashes in headless or minimal environments.
+- **Path & Environment Variable Resolution**: Enhanced custom templates directory resolution supporting `~` across platforms as well as Windows (`%USERPROFILE%`, `%APPDATA%`) and Unix (`$HOME`, `${HOME}`) environment variables.
+
 ## [0.1.0] - 2026-09-28
 
 ### Initial Release - Universal CodeGen

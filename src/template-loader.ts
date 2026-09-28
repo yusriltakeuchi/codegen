@@ -57,9 +57,16 @@ export class TemplateLoader {
     const configured = codegenConfig || legacyConfig;
 
     if (configured) {
-      return configured.startsWith("~")
-        ? path.join(os.homedir(), configured.slice(1))
-        : configured;
+      let resolved = configured;
+      if (resolved.startsWith("~")) {
+        const relativePart = resolved.replace(/^~[/\\]?/, "");
+        resolved = path.join(os.homedir(), relativePart);
+      }
+      // Expand Windows environment variables: %VAR%
+      resolved = resolved.replace(/%([^%]+)%/g, (_, name) => process.env[name] || "");
+      // Expand Unix environment variables: $VAR or ${VAR}
+      resolved = resolved.replace(/\$([A-Za-z_][A-Za-z0-9_]*)|\${([A-Za-z_][A-Za-z0-9_]*)}/g, (_, n1, n2) => process.env[n1 || n2] || "");
+      return path.normalize(resolved);
     }
 
     return path.join(os.homedir(), ".codegen", "templates");
