@@ -1,9 +1,9 @@
 {
-  "name": "codegen",
-  "displayName": "CodeGen",
+  "name": "codegen-universal",
+  "displayName": "CodeGen Universal",
   "description": "Universal right-click code generator for VS Code & Antigravity IDE. Scaffold Dart/Flutter, Laravel/PHP, React, Go, Vue, Python, and custom templates in seconds.",
   "version": "0.1.0",
-  "publisher": "YusrilRapsanjani",
+  "publisher": "leeyurani",
   "author": "Yusril Rapsanjani",
   "license": "MIT",
   "icon": "images/icon.png",
