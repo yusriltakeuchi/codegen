@@ -12,11 +12,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Initial Release - Universal CodeGen
 - **Universal Architecture**: Scaffold any language or framework via global and local templates.
 - **Context Menu Integration**: Right-click any directory in Explorer to access:
-  - `New from Template...`: Interactive quick search across all 26 available templates.
+  - `New from Template...`: Interactive quick search across all 31 available templates.
   - `Dart / Flutter` submenu with 10 quick-access commands.
   - `Laravel` submenu with 6 quick-access commands.
   - `React` submenu with 3 quick-access commands.
-  - `Go (Golang)` submenu with 3 quick-access commands.
+  - `Go (Golang)` submenu with 8 quick-access commands.
   - `Vue` submenu with 2 quick-access commands.
   - `Python (FastAPI)` submenu with 2 quick-access commands.
 - **Built-in Dart & Flutter Templates**:
@@ -42,9 +42,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `Create Hook`: Custom React hook with state, `useCallback`, and typed return interface (`use${NAME_PASCAL_CASE}.ts`).
   - `Create Context`: React Context, Provider component, and custom `useContext` hook with error boundary guard (`${NAME_PASCAL_CASE}Context.tsx`).
 - **Built-in Go (Golang) Templates**:
-  - `Create HTTP Handler`: Go HTTP handler struct with `GetAll`, `GetByID`, `Create`, `Update`, `Delete` receiver methods (`${NAME_SNAKE_CASE}_handler.go`).
+  - `Create Model (GORM)`: Database entity model struct with GORM tags, JSON tags, and Request/Response DTOs (`${NAME_SNAKE_CASE}.go`).
   - `Create Service`: Domain service interface and struct implementation with constructor `New${NAME_PASCAL_CASE}Service` (`${NAME_SNAKE_CASE}_service.go`).
   - `Create Repository`: Database repository interface and implementation struct (`${NAME_SNAKE_CASE}_repository.go`).
+  - `Create Gin Handler`: Gin HTTP handler struct with `RegisterRoutes(rg *gin.RouterGroup)`, CRUD actions, and JSON responses (`${NAME_SNAKE_CASE}_handler.go`).
+  - `Create Gin Middleware`: Custom Gin HTTP middleware with context and abort handling (`${NAME_SNAKE_CASE}_middleware.go`).
+  - `Create Fiber Handler`: Fiber route handler with `RegisterRoutes(router fiber.Router)`, CRUD actions, and JSON error handling (`${NAME_SNAKE_CASE}_handler.go`).
+  - `Create Fiber Middleware`: Custom Fiber HTTP middleware handler with error handling and context locals (`${NAME_SNAKE_CASE}_middleware.go`).
+  - `Create HTTP Handler (net/http)`: Standard Go HTTP handler struct with `GetAll`, `GetByID`, `Create`, `Update`, `Delete` receiver methods (`${NAME_SNAKE_CASE}_handler.go`).
 - **Built-in Vue 3 Templates**:
   - `Create Component`: Vue 3 Single File Component (SFC) with `<script setup lang="ts">`, props, emits, and scoped CSS (`${NAME_PASCAL_CASE}.vue`).
   - `Create Composable`: Vue 3 composable with reactive refs, computed state, and execution helpers (`use${NAME_PASCAL_CASE}.ts`).

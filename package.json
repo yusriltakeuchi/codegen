@@ -23,6 +23,9 @@
     "php",
     "react",
     "golang",
+    "gin",
+    "fiber",
+    "gorm",
     "vue",
     "python",
     "fastapi",
@@ -60,6 +63,11 @@
     "onCommand:codegen.golang.createHandler",
     "onCommand:codegen.golang.createService",
     "onCommand:codegen.golang.createRepository",
+    "onCommand:codegen.golang.createModel",
+    "onCommand:codegen.golang.createGinHandler",
+    "onCommand:codegen.golang.createGinMiddleware",
+    "onCommand:codegen.golang.createFiberHandler",
+    "onCommand:codegen.golang.createFiberMiddleware",
     "onCommand:codegen.vue.createComponent",
     "onCommand:codegen.vue.createComposable",
     "onCommand:codegen.python.createRouter",
@@ -74,7 +82,7 @@
   "main": "./out/extension.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yusril/codegen"
+    "url": "https://github.com/yusriltakeuchi/codegen"
   },
   "bugs": {
     "url": "https://github.com/yusril/codegen/issues"
@@ -184,7 +192,7 @@
       },
       {
         "command": "codegen.golang.createHandler",
-        "title": "Go: Create HTTP Handler",
+        "title": "Go: Create HTTP Handler (net/http)",
         "category": "CodeGen"
       },
       {
@@ -195,6 +203,31 @@
       {
         "command": "codegen.golang.createRepository",
         "title": "Go: Create Repository",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.golang.createModel",
+        "title": "Go: Create Model (GORM)",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.golang.createGinHandler",
+        "title": "Go: Create Gin Handler",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.golang.createGinMiddleware",
+        "title": "Go: Create Gin Middleware",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.golang.createFiberHandler",
+        "title": "Go: Create Fiber Handler",
+        "category": "CodeGen"
+      },
+      {
+        "command": "codegen.golang.createFiberMiddleware",
+        "title": "Go: Create Fiber Middleware",
         "category": "CodeGen"
       },
       {
@@ -378,16 +411,36 @@
       ],
       "codegen.menu.golang": [
         {
-          "command": "codegen.golang.createHandler",
-          "group": "1_golang@1"
+          "command": "codegen.golang.createModel",
+          "group": "1_domain@1"
         },
         {
           "command": "codegen.golang.createService",
-          "group": "1_golang@2"
+          "group": "1_domain@2"
         },
         {
           "command": "codegen.golang.createRepository",
-          "group": "1_golang@3"
+          "group": "1_domain@3"
+        },
+        {
+          "command": "codegen.golang.createGinHandler",
+          "group": "2_gin@1"
+        },
+        {
+          "command": "codegen.golang.createGinMiddleware",
+          "group": "2_gin@2"
+        },
+        {
+          "command": "codegen.golang.createFiberHandler",
+          "group": "3_fiber@1"
+        },
+        {
+          "command": "codegen.golang.createFiberMiddleware",
+          "group": "3_fiber@2"
+        },
+        {
+          "command": "codegen.golang.createHandler",
+          "group": "4_std@1"
         }
       ],
       "codegen.menu.vue": [
@@ -479,6 +532,21 @@
         },
         {
           "command": "codegen.golang.createRepository"
+        },
+        {
+          "command": "codegen.golang.createModel"
+        },
+        {
+          "command": "codegen.golang.createGinHandler"
+        },
+        {
+          "command": "codegen.golang.createGinMiddleware"
+        },
+        {
+          "command": "codegen.golang.createFiberHandler"
+        },
+        {
+          "command": "codegen.golang.createFiberMiddleware"
         },
         {
           "command": "codegen.vue.createComponent"

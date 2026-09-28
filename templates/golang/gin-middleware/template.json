@@ -1,0 +1,16 @@
+{
+  "name": "Create Gin Middleware",
+  "description": "Create custom Gin HTTP middleware with context and abort handling",
+  "language": "go",
+  "category": "golang",
+  "filename": "${NAME_SNAKE_CASE}_middleware.go",
+  "variables": [
+    {
+      "name": "NAME",
+      "prompt": "Middleware name (e.g. auth, logger, cors)",
+      "placeholder": "auth",
+      "required": true,
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+    }
+  ]
+}

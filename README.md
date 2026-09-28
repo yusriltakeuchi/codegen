@@ -59,7 +59,7 @@ Scaffold single or multi-file templates complete with imports, syntax, and forma
 
 - **Truly Universal**: Built for multi-language development. Ships with rich presets for Dart/Flutter, Laravel/PHP, React, Go, Vue, and Python/FastAPI, and is easily extensible for any custom stack.
 - **1-Click Generation via Explorer**: Right-click folder -> `CodeGen` -> select template. Scaffolding is created directly where you clicked.
-- **26+ Built-in Production Presets**: High-quality presets ready to use out of the box across 6 major languages and ecosystems.
+- **31+ Built-in Production Presets**: High-quality presets ready to use out of the box across 6 major languages and ecosystems.
 - **Global Templates Directory (`~/.codegen/templates`)**: Store your personal scaffolds in one central global directory so they are accessible across all projects on your machine.
 - **Multi-File Scaffolding**: Generate companion files (such as Component + CSS Module, Interface + Implementation, or Bloc + State) from a single user prompt.
 - **Smart String Case Transformations**: Supports `PascalCase`, `camelCase`, `snake_case`, `kebab-case`, `UPPER_CASE`, and smart plurals (`${NAME_PLURAL_SNAKE_CASE}`, `${NAME_PLURAL_CAMEL_CASE}`, `${NAME_PLURAL_PASCAL_CASE}`).
@@ -105,13 +105,18 @@ Scaffold single or multi-file templates complete with imports, syntax, and forma
 | **Create Hook** | `use${NAME}.ts` | Custom React hook with state (`data`, `isLoading`, `error`), `useCallback`, and typed return interface. |
 | **Create Context** | `${NAME}Context.tsx` | React Context, Provider component, and custom `useContext` hook with error boundary guard. |
 
-### Go / Golang Presets (3)
+### Go / Golang Presets (8)
 
 | Command | Output File(s) | Description |
 | :--- | :--- | :--- |
-| **Create HTTP Handler** | `${NAME}_handler.go` | HTTP handler struct with `GetAll`, `GetByID`, `Create`, `Update`, `Delete` receiver methods. |
+| **Create Model (GORM)** | `${NAME}.go` | GORM entity model with ID, timestamps, soft delete, TableName, and Request/Response DTOs. |
 | **Create Service** | `${NAME}_service.go` | Domain service interface, concrete struct implementation, and constructor `New${NAME}Service`. |
 | **Create Repository** | `${NAME}_repository.go` | Database repository contract interface and SQL implementation struct. |
+| **Create Gin Handler** | `${NAME}_handler.go` | Gin HTTP handler struct with `RegisterRoutes(rg *gin.RouterGroup)`, CRUD actions, and JSON responses. |
+| **Create Gin Middleware** | `${NAME}_middleware.go` | Custom Gin HTTP middleware with context storage and abort handling. |
+| **Create Fiber Handler** | `${NAME}_handler.go` | Fiber route handler with `RegisterRoutes(router fiber.Router)`, CRUD actions, and JSON error handling. |
+| **Create Fiber Middleware** | `${NAME}_middleware.go` | Custom Fiber HTTP middleware handler with context locals and pipeline continuation. |
+| **Create HTTP Handler (net/http)** | `${NAME}_handler.go` | Standard Go `net/http` handler struct with `GetAll`, `GetByID`, `Create`, `Update`, `Delete`. |
 
 ### Vue 3 Presets (2)
 
@@ -231,6 +236,68 @@ func (h *UserHandler) GetAll(w http.ResponseWriter, r *http.Request) {
 	_ = json.NewEncoder(w).Encode(map[string]interface{}{
 		"success": true,
 		"data":    []interface{}{},
+	})
+}
+```
+
+### Go Gin Handler (`product_handler.go`)
+```go
+package handler
+
+import (
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+)
+
+type ProductHandler struct{}
+
+func NewProductHandler() *ProductHandler {
+	return &ProductHandler{}
+}
+
+func (h *ProductHandler) RegisterRoutes(rg *gin.RouterGroup) {
+	group := rg.Group("/products")
+	{
+		group.GET("", h.GetAll)
+		group.GET("/:id", h.GetByID)
+		group.POST("", h.Create)
+	}
+}
+
+func (h *ProductHandler) GetAll(c *gin.Context) {
+	c.JSON(http.StatusOK, gin.H{
+		"success": true,
+		"data":    []gin.H{},
+	})
+}
+```
+
+### Go Fiber Handler (`order_handler.go`)
+```go
+package handler
+
+import (
+	"github.com/gofiber/fiber/v2"
+)
+
+type OrderHandler struct{}
+
+func NewOrderHandler() *OrderHandler {
+	return &OrderHandler{}
+}
+
+func (h *OrderHandler) RegisterRoutes(router fiber.Router) {
+	group := router.Group("/orders")
+	group.Get("/", h.GetAll)
+	group.Get("/:id", h.GetByID)
+	group.Post("/", h.Create)
+}
+
+func (h *OrderHandler) GetAll(c *fiber.Ctx) error {
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{
+		"success": true,
+		"data":    []fiber.Map{},
 	})
 }
 ```

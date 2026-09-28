@@ -1,0 +1,16 @@
+{
+  "name": "Create Fiber Handler",
+  "description": "Create Fiber HTTP route handler with group routing and JSON responses",
+  "language": "go",
+  "category": "golang",
+  "filename": "${NAME_SNAKE_CASE}_handler.go",
+  "variables": [
+    {
+      "name": "NAME",
+      "prompt": "Resource name (e.g. user, product, order)",
+      "placeholder": "user",
+      "required": true,
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+    }
+  ]
+}

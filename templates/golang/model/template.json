@@ -1,0 +1,16 @@
+{
+  "name": "Create Go Model (GORM)",
+  "description": "Create Go model struct with GORM tags, JSON tags, and Request/Response DTOs",
+  "language": "go",
+  "category": "golang",
+  "filename": "${NAME_SNAKE_CASE}.go",
+  "variables": [
+    {
+      "name": "NAME",
+      "prompt": "Model / Entity name (e.g. user, product, order)",
+      "placeholder": "user",
+      "required": true,
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+    }
+  ]
+}

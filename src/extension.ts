@@ -177,6 +177,41 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
     }
   );
 
+  const golangModelDisposable = vscode.commands.registerCommand(
+    "codegen.golang.createModel",
+    async (resource?: vscode.Uri) => {
+      await createFromTemplate(resource, "golang/model");
+    }
+  );
+
+  const golangGinHandlerDisposable = vscode.commands.registerCommand(
+    "codegen.golang.createGinHandler",
+    async (resource?: vscode.Uri) => {
+      await createFromTemplate(resource, "golang/gin-handler");
+    }
+  );
+
+  const golangGinMiddlewareDisposable = vscode.commands.registerCommand(
+    "codegen.golang.createGinMiddleware",
+    async (resource?: vscode.Uri) => {
+      await createFromTemplate(resource, "golang/gin-middleware");
+    }
+  );
+
+  const golangFiberHandlerDisposable = vscode.commands.registerCommand(
+    "codegen.golang.createFiberHandler",
+    async (resource?: vscode.Uri) => {
+      await createFromTemplate(resource, "golang/fiber-handler");
+    }
+  );
+
+  const golangFiberMiddlewareDisposable = vscode.commands.registerCommand(
+    "codegen.golang.createFiberMiddleware",
+    async (resource?: vscode.Uri) => {
+      await createFromTemplate(resource, "golang/fiber-middleware");
+    }
+  );
+
   // Vue specific commands
   const vueComponentDisposable = vscode.commands.registerCommand(
     "codegen.vue.createComponent",
@@ -279,6 +314,11 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
     golangHandlerDisposable,
     golangServiceDisposable,
     golangRepoDisposable,
+    golangModelDisposable,
+    golangGinHandlerDisposable,
+    golangGinMiddlewareDisposable,
+    golangFiberHandlerDisposable,
+    golangFiberMiddlewareDisposable,
     vueComponentDisposable,
     vueComposableDisposable,
     pythonRouterDisposable,
@@ -331,19 +371,15 @@ async function createFromTemplate(
 
   if (templateQuery) {
     const q = templateQuery.toLowerCase();
-    selectedTemplate = templates.find((t) => {
-      const id = t.id.toLowerCase();
-      const name = t.name.toLowerCase();
-      const filename = t.filename.toLowerCase();
-      return (
-        id === q ||
-        id.endsWith(`/${q}`) ||
-        id.includes(q) ||
-        name === q ||
-        name.includes(q) ||
-        filename.includes(q)
-      );
-    });
+    selectedTemplate =
+      templates.find((t) => t.id.toLowerCase() === q || t.id.toLowerCase().endsWith(`/${q}`)) ||
+      templates.find((t) => t.name.toLowerCase() === q) ||
+      templates.find((t) => {
+        const id = t.id.toLowerCase();
+        const name = t.name.toLowerCase();
+        const filename = t.filename.toLowerCase();
+        return id.includes(q) || name.includes(q) || filename.includes(q);
+      });
   }
 
   if (!selectedTemplate) {
